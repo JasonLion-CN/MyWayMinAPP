@@ -1,0 +1,64 @@
+
+<view class="ban">
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item style="background:url({{item}});background-repeat: no-repeat;background-size:100% 200px;">
+      <image src="{{item}}" class="slide-image"  bindload="imageLoad"/>
+    </swiper-item>
+  </block>
+</swiper>
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">情感</view>
+        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">职场</view>
+        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">育儿</view>
+        <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">纠纷</view>
+        <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">青葱</view>
+        <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">全部</view>
+        <view class="tab-item {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">其他</view>
+    </scroll-view>
+  <view class="search__top">
+    <view class="search__icon search__active" style="margin-right:20rpx;margin-left:20rpx;width:60rpx;">
+      <icon type="search" size="30" color="#888" style="margin-right:40rpx;"></icon>
+    </view>
+    <form class="search__form" bindsubmit="searchSubmit">
+      <input value="{{search.searchValue}}" placeholder="团队名字/团队ID" class="search__input" bindfocus="focusSearch" bindinput="searchActiveChangeinput" auto-focus="true" name="teamSearchKeyWords" placeholder-style="font-size:20px;"/>
+      <button wx:if="{{search.showClearBtn}}" catchtap="searchActiveChangeclear" form-type="reset" style="background:none;position:absolute;border:none;right:0;top:0;bottom:0;width:80rpx;">
+        <icon type="clear" size="19" color="#aaa" style="position:absolute;right:15rpx;top:10rpx;z-index:3;"></icon>
+      </button>
+    </form>
+  </view>
+</view >
+<!--index.wxml-->
+
+<view class="span"></view>
+
+<!--选项卡-->
+<view class="tabTit box tc bg_f">
+    <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab"><text>{{item}}</text><image src="/images/arrow.png"></image></view>
+</view>
+
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+     <view class="H">
+        <text class="img"> 图片 </text>
+        <view class="V">
+          <text class="title"> 碧桂园.凤凰湾</text>
+          <text class="content">发传单.日结</text>
+        </view>
+        <button>确认</button>
+     </view>
+     <view class="separate"></view>
+    </view>
+  </view>
+</view>
+
+<!-- 底部悬浮栏 -->
+<view class="detail-nav">
+  <button class="button-green" bindtap="addCar" formType="submit">加入购物车</button>
+  <button class="button-red" bindtap="immeBuy" formType="submit">立即购买</button>
+</view>
+
+
