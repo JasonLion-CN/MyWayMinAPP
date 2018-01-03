@@ -5,9 +5,11 @@
     "pages/zhaopin"
   ],
   "window": {
+    "backgroundColor": "#FF6EB4",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "麦微招聘信息平台",
     "navigationBarTextStyle": "black"
+
   }
 }
